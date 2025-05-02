@@ -9,6 +9,7 @@
         { "include": "#query" },
         { "include": "#function-like-terms" },
         { "include": "#case_c" },
+        { "include": "#keywords" },
         { "include": "#variables" },
         { "include": "#predicates" },
         { "include": "#operators" },
@@ -66,7 +67,7 @@
         "function-like-terms":{
             "patterns": [
                 {
-                    "name": "entity.name.function.dl",
+                    "name": "keyword.special.dl",
                     "match": "\\b[a-zA-Z0-9_]*\\("
                 }
             ]
@@ -80,8 +81,16 @@
             ]
         },
         "case_c": { 
-            "name": "keyword.special.case-c.dl",
-            "match": "\\b[a-zA-Z0-9_]*\\s*="
+            "name": "entity.name.function.case-c.dl",
+            "match": "\\b[a-zA-Z0-9_]*\\s*=\\s+"
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.dl",
+                    "match": "\\b(if|else)\\b"
+                }
+            ]
         }
     },
     "scopeName": "source.dl"
