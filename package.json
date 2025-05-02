@@ -1,0 +1,25 @@
+{
+  "name": "datalog",
+  "displayName": "datalog",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "dl",
+      "aliases": ["datalog", "dl"],
+      "extensions": ["dl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "dl",
+      "scopeName": "source.dl",
+      "path": "./syntaxes/dl.tmLanguage.json"
+    }]
+  }
+}

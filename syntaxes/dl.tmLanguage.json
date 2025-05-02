@@ -1,0 +1,88 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "datalog",
+    "patterns": [
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#numbers" },
+        { "include": "#aggregate_functions" },
+        { "include": "#query" },
+        { "include": "#function-like-terms" },
+        { "include": "#case_c" },
+        { "include": "#variables" },
+        { "include": "#predicates" },
+        { "include": "#operators" },
+        { "include": "#builtins" },
+        { "include": "#wildcards" }
+    ],
+    "repository": {
+        "comments": {
+            "name": "comment.line.number-sign.dl",
+            "match": "^#[^\\n]*$"
+        },
+        "strings": {
+            "name": "string.quoted.double.dl",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.dl",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "numbers": {
+            "name": "constant.numeric.integer.dl",
+            "match": "\\b\\d+\\b"
+        },
+        "variables": {
+            "name": "variable.other.dl",
+            "match": "\\b[A-Za-z_][a-zA-Z0-9_]*\\b"
+        },
+        "predicates": {
+            "name": "entity.name.function.dl",
+            "match": "\\b[a-z][a-zA-Z0-9_]*\\b"
+        },
+        "operators": {
+            "name": "keyword.operator.dl",
+            "match": ":-|[,.]"
+        },
+        "builtins": {
+            "name": "keyword.control.dl",
+            "match": "\\bis\\b"
+        },
+        "wildcards": {
+            "name": "keyword.other.dl",
+            "match": "\\b_\\b"
+        },
+        "query":{
+            "patterns": [
+                {
+                    "name": "entity.name.class.dl",
+                    "match": "\\?-?\\s*\\b[a-zA-Z0-9_]*\\("
+                }
+            ]
+        },
+        "function-like-terms":{
+            "patterns": [
+                {
+                    "name": "entity.name.function.dl",
+                    "match": "\\b[a-zA-Z0-9_]*\\("
+                }
+            ]
+        },
+        "aggregate_functions": {
+            "patterns": [
+                {
+                    "name": "keyword.control.aggregate.dl",
+                    "match": "\\b(max|min|sum|avg|count)\\s*\\["
+                }
+            ]
+        },
+        "case_c": { 
+            "name": "keyword.special.case-c.dl",
+            "match": "\\b[a-zA-Z0-9_]*\\s*="
+        }
+    },
+    "scopeName": "source.dl"
+}
